@@ -1,0 +1,64 @@
+<!--
+  Copyright (c) 2025 A. N. Hidayat (anhidayat.my.id)
+  JSON Formatter & Validator - A simple tool to format and validate JSON data
+  This file is part of JSON Formatter & Validator.
+  https://anhidayat.my.id/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter & Parser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JSON Formatter & Parser</h1>
+        <div class="tool-container">
+            <div class="input-section">
+                <div class="section-header">
+                    <h2>Input JSON</h2>
+                    <div class="actions">
+                        <button id="formatBtn">Format</button>
+                        <button id="minifyBtn">Minify</button>
+                        <button id="clearBtn">Clear</button>
+                    </div>
+                </div>
+                <textarea id="inputJson" placeholder="Paste your JSON here..."></textarea>
+            </div>
+            
+            <div class="output-section">
+                <div class="section-header">
+                    <h2>Formatted JSON</h2>
+                    <div class="view-toggle">
+                        <button id="copyBtn">Copy to Clipboard</button>
+                        <button id="viewJsonBtn" class="active">JSON View</button>
+                        <button id="viewTableBtn">Table View</button>
+                    </div>
+                </div>
+                <div id="jsonOutput">
+                    <pre id="outputJson">{}</pre>
+                    <div id="tableContainer"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="error-section" id="errorSection">
+            <h3>Error:</h3>
+            <div id="errorMessage"></div>
+        </div>
+        <div class="watermark">anhidayat.my.id</div>
+        
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    &copy; 2025  Made with <span class="heart">❤️</span> anhidayat.my.id
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

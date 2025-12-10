@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.tool-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-section, .output-section {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.section-header h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+textarea, pre {
+    width: 100%;
+    min-height: 400px;
+    padding: 15px;
+    border: none;
+    resize: vertical;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+}
+
+pre {
+    margin: 0;
+    overflow-y: auto;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    margin-left: 8px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.actions, .view-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+#viewJsonBtn, #viewTableBtn {
+    background-color: #9b59b6;
+}
+
+#viewJsonBtn:hover, #viewTableBtn:hover {
+    background-color: #8e44ad;
+}
+
+#viewJsonBtn.active, #viewTableBtn.active {
+    background-color: #8e44ad;
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.5);
+}
+
+#copyBtn {
+    background-color: #2ecc71;
+}
+
+#copyBtn:hover {
+    background-color: #27ae60;
+}
+
+#clearBtn {
+    background-color: #e74c3c;
+}
+
+#clearBtn:hover {
+    background-color: #c0392b;
+}
+
+#tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    display: none;
+}
+
+#jsonTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+#jsonTable th, #jsonTable td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+    word-break: break-word;
+}
+
+#jsonTable th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#jsonTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#jsonTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Keep the table header fixed while scrolling */
+#tableContainer {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.error-section {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: none;
+}
+
+.error-section h3 {
+    margin-bottom: 8px;
+    color: #721c24;
+}
+
+/**
+ * Copyright (c) 2025 A. N. Hidayat (anhidayat.my.id)
+ * JSON Formatter & Validator - A simple tool to format and validate JSON data
+ * This file is part of JSON Formatter & Validator.
+ * https://anhidayat.my.id/
+ */
+
+/* Main Styles */
+.app-footer {
+    margin-top: 40px;
+    padding: 15px 0;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-top: 1px solid #34495e;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.made-with-love {
+    font-size: 14px;
+    color: #bdc3c7;
+    margin-bottom: 5px;
+}
+
+.made-with-love .heart {
+    color: #e74c3c;
+    margin: 0 2px;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Watermark */
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    user-select: none;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Syntax highlighting for JSON */
+.string { color: #2ecc71; }
+.number { color: #e67e22; }
+.boolean { color: #9b59b6; }
+.null { color: #7f8c8d; }
+.key { color: #2980b9; }
+
+@media (max-width: 768px) {
+    .tool-container {
+        flex-direction: column;
+    }
+    
+    .input-section, .output-section {
+        width: 100%;
+    }
+    
+    .app-footer {
+        padding: 12px 0;
+    }
+    
+    .made-with-love {
+        font-size: 13px;
+    }
+    
+    .footer-copyright {
+        font-size: 11px;
+    }
+}
